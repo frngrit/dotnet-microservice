@@ -4,6 +4,8 @@
     <TargetFramework>net7.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <DockerComposeProjectPath>../src/docker-compose.dcproj</DockerComposeProjectPath>
+    <UserSecretsId>dfa75cdf-606a-4854-b425-6b5b23434e28</UserSecretsId>
   </PropertyGroup>
 
   <PropertyGroup Condition=" '$(RunConfiguration)' == 'Basket.API' " />
