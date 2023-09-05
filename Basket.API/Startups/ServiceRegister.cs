@@ -1,4 +1,6 @@
 ﻿using System;
+using Basket.API.Repositories;
+
 namespace Basket.API.Startups
 {
 	public static class ServicesRegister
@@ -9,6 +11,11 @@ namespace Basket.API.Startups
 			{
 				options.Configuration = configuration.GetValue<string>("CacheSettings:ConnectionString");
 			});
+		}
+
+		public static void RegisterRepositories(this IServiceCollection services)
+		{
+			services.AddScoped<IBasketRepository, BasketRepository>();
 		}
 	}
 }

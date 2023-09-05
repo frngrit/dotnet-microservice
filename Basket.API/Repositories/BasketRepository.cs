@@ -1,5 +1,4 @@
-﻿using System;
-using Basket.API.Entities;
+﻿using Basket.API.Entities;
 using Microsoft.Extensions.Caching.Distributed;
 using Newtonsoft.Json;
 
@@ -19,13 +18,13 @@ namespace Basket.API.Repositories
             await _redisCache.RemoveAsync(username);
         }
 
-        public async Task<ShoppingCart> GetBasket(string username)
+        public async Task<ShoppingCart?> GetBasket(string username)
         {
             var basket = await _redisCache.GetStringAsync(username);
 
-            if (string.IsNullOrEmpty(basket)) throw new KeyNotFoundException("redis not found: " + username);
+            if (string.IsNullOrEmpty(basket)) return null;
 
-            return JsonConvert.DeserializeObject<ShoppingCart>(basket) ?? throw new KeyNotFoundException("redis not found: " + username);
+            return JsonConvert.DeserializeObject<ShoppingCart>(basket);
         }
 
         public async Task<ShoppingCart> UpdateBasket(ShoppingCart basket)
@@ -34,7 +33,7 @@ namespace Basket.API.Repositories
 
             await _redisCache.SetStringAsync(basket.UserName, stringBasket);
 
-            return await GetBasket(basket.UserName);
+            return (await GetBasket(basket.UserName))!;
         }
     }
 }
