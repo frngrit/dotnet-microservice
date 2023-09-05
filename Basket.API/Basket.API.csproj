@@ -17,9 +17,13 @@
   <ItemGroup>
     <None Remove="Controllers\" />
     <None Remove="Entities\" />
+    <None Remove="Startups\" />
+    <None Remove="Repositories\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controllers\" />
     <Folder Include="Entities\" />
+    <Folder Include="Startups\" />
+    <Folder Include="Repositories\" />
   </ItemGroup>
 </Project>

@@ -1,4 +1,6 @@
-﻿var builder = WebApplication.CreateBuilder(args);
+﻿using Basket.API.Startups;
+
+var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
@@ -6,6 +8,9 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+//Register redis
+builder.Services.RegisterRedis(builder.Configuration);
 
 var app = builder.Build();
 
