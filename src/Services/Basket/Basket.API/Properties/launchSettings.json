@@ -20,7 +20,8 @@
     "Basket.API": {
       "commandName": "Project",
       "launchBrowser": true,
-      "applicationUrl": "http://localhost:46080",
+      "launchUrl": "swagger",
+      "applicationUrl": "http://localhost:5001",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
