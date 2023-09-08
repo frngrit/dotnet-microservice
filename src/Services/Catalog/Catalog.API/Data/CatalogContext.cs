@@ -8,9 +8,9 @@ namespace Catalog.API.Data
 	{
 		public CatalogContext(IConfiguration config)
 		{
-			var connectionString = config.GetValue<string>("DatabaseSetting:ConnectionString");
-            var databaseName = config.GetValue<string>("DatabaseSetting:DatabaseName");
-            var collectionName = config.GetValue<string>("DatabaseSetting:CollectionName");
+			var connectionString = config.GetValue<string>("DatabaseSettings:ConnectionString");
+            var databaseName = config.GetValue<string>("DatabaseSettings:DatabaseName");
+            var collectionName = config.GetValue<string>("DatabaseSettings:CollectionName");
 
             var client = new MongoClient(connectionString);
 			var database = client.GetDatabase(databaseName);

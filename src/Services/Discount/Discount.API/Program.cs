@@ -12,6 +12,8 @@ builder.Services.RegisterRepositories();
 
 var app = builder.Build();
 
+app.Services.MigrateDatabase();
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {

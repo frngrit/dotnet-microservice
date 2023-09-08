@@ -10,7 +10,7 @@ WORKDIR /src
 COPY ["Services/Basket/Basket.API/Basket.API.csproj", "Basket.API/"]
 RUN dotnet restore "Basket.API/Basket.API.csproj"
 COPY . .
-WORKDIR "/src/Basket.API"
+WORKDIR "/src/Services/Basket/Basket.API"
 RUN dotnet build "Basket.API.csproj" -c Release -o /app/build
 
 FROM build AS publish

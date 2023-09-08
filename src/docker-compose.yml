@@ -55,7 +55,7 @@ services:
     container_name: catalog.api
     environment:
         - ASPNETCORE_ENVIRONMENT=Development
-        - "DatabaseSetting:ConnectionString=mongodb://catalogdb:27017"
+        - "DatabaseSettings:ConnectionString=mongodb://catalogdb:27017"
     depends_on:
         - catalogdb
     ports:
@@ -72,8 +72,12 @@ services:
         - "8001:80"
 
   discount.api:
-    image: ${DOCKER_REGISTRY-}discount
-    build:
-      context: .
-      dockerfile: Services/Discount/Discount.API/Dockerfile
+    container_name: discount.api
+    environment:
+        - ASPNETCORE_ENVIRONMENT=Development
+        - "DatabaseSettingss:ConnectionString=Host=discountdb;Port=5432;Username=admin;Password=admin1234;Database=DiscountDb"
+    depends_on:
+        - discountdb
+    ports:
+        - "8002:80"
 
