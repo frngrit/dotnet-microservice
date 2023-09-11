@@ -29,7 +29,10 @@ namespace Basket.API.Controllers
         [ProducesResponseType(typeof(ShoppingCart), (int)HttpStatusCode.Created)]
         public async Task<ActionResult<ShoppingCart>> UpdateBasket(ShoppingCart basket)
 		{
-			var result = await _basketRepository.UpdateBasket(basket);
+            // TODO: Communicate to discount.Grpc
+			// TODO: and calculate total price 
+
+            var result = await _basketRepository.UpdateBasket(basket);
 
 			return Ok(result);
 		}
