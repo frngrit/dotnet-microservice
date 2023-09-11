@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
 using Discount.Grpc.Entities;
 using Discount.Grpc.Entities.Repositories;
-using Discount.Grpc.Mappers;
 using Discount.Grpc.Protos;
 using Grpc.Core;
 

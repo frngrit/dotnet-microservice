@@ -1,5 +1,6 @@
 ﻿using System.Net;
 using Basket.API.Entities;
+using Basket.API.GrpcService;
 using Basket.API.Repositories;
 using Microsoft.AspNetCore.Mvc;
 
@@ -10,10 +11,15 @@ namespace Basket.API.Controllers
 	public class BasketController : ControllerBase
 	{
         private readonly IBasketRepository _basketRepository;
+        private readonly IDiscountGrpcService _discountGrpcService;
 
-        public BasketController(IBasketRepository basketRepository)
+        public BasketController(
+			IBasketRepository basketRepository,
+            IDiscountGrpcService discountGrpcService
+            )
 		{
 			_basketRepository = basketRepository;
+			_discountGrpcService = discountGrpcService;
         }
 
 		[HttpGet("{userName}", Name = "GetBasket")]
@@ -29,9 +35,14 @@ namespace Basket.API.Controllers
         [ProducesResponseType(typeof(ShoppingCart), (int)HttpStatusCode.Created)]
         public async Task<ActionResult<ShoppingCart>> UpdateBasket(ShoppingCart basket)
 		{
-            // TODO: Communicate to discount.
+			foreach (var item in basket.Items)
+			{
+				// TODO: Communicate to discount.
+				var coupon = await _discountGrpcService.GetCoupon(item.ProductName);
+				// TODO: and calculate total price 
+				item.Price -= coupon.Amount;
+			}
 
-            // TODO: and calculate total price 
 
             var result = await _basketRepository.UpdateBasket(basket);
 

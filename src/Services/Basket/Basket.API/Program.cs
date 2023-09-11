@@ -11,10 +11,10 @@ builder.Services.AddSwaggerGen();
 
 //Register redis
 builder.Services.RegisterRedis(builder.Configuration);
-
+builder.Services.RegisterGrpc(builder.Configuration);
 builder.Services.RegisterRepositories();
 
-    var app = builder.Build();
+var app = builder.Build();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
