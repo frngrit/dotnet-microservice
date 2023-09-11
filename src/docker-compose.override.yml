@@ -30,10 +30,10 @@ services:
       context: .
       dockerfile: Services/Discount/Discount.API/Dockerfile
   discount.grpc:
-    environment:
-      - ASPNETCORE_ENVIRONMENT=Development
-    ports:
-      - "80"
+    image: ${DOCKER_REGISTRY-}discount
+    build:
+      context: .
+      dockerfile: Services/Discount/Discount.Grpc/Dockerfile
 
 volumes:
   mongo_data:

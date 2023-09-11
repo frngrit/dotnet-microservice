@@ -12,7 +12,7 @@ namespace Discount.Grpc.Startups
             var logger = serviceProvider.GetRequiredService<ILogger<IStartup>>();
 
 			var configuration = serviceProvider.GetRequiredService<IConfiguration>();
-			string ConnectionString = configuration.GetValue<string>("DatabaseSettingss:ConnectionString")
+			string ConnectionString = configuration.GetValue<string>("DatabaseSettings:ConnectionString")
                     ?? throw new ArgumentNullException(nameof(ConnectionString));
 
 
