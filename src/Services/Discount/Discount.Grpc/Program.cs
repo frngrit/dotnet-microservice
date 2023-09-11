@@ -1,4 +1,5 @@
 ﻿using Discount.Grpc.Services;
+using Discount.Grpc.Startups;
 
 namespace Discount.Grpc;
 
@@ -13,8 +14,11 @@ public class Program
 
         // Add services to the container.
         builder.Services.AddGrpc();
+        builder.Services.RegisterRepositories();
 
         var app = builder.Build();
+
+        app.Services.MigrateDatabase();
 
         // Configure the HTTP request pipeline.
         app.MapGrpcService<GreeterService>();
