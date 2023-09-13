@@ -8,7 +8,7 @@ namespace Discount.API.Entities.Repositories
     {
         private readonly IConfiguration _configuration;
 
-        public string ConnectionString => _configuration.GetValue<string>("DatabaseSettingss:ConnectionString")
+        public string ConnectionString => _configuration.GetValue<string>("DatabaseSettings:ConnectionString")
                     ?? throw new ArgumentNullException(nameof(ConnectionString));
 
         public DiscountRepository(IConfiguration configuration)
