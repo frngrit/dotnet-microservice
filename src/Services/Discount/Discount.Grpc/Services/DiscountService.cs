@@ -6,7 +6,7 @@ using Grpc.Core;
 
 namespace Discount.Grpc.Services
 {
-	public class DiscountService : DiscountProtoService.DiscountProtoServiceBase
+    public class DiscountService : DiscountProtoService.DiscountProtoServiceBase
     {
         private readonly IDiscountRepository _discountRepository;
         private readonly ILogger<DiscountService> _logger;
@@ -17,8 +17,8 @@ namespace Discount.Grpc.Services
             ILogger<DiscountService> logger,
             IMapper mapper
             )
-		{
-			_discountRepository = discountRepository ?? throw new ArgumentNullException(nameof(discountRepository));
+        {
+            _discountRepository = discountRepository ?? throw new ArgumentNullException(nameof(discountRepository));
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
             _mapper = mapper;
         }

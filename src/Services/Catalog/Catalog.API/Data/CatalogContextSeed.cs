@@ -4,21 +4,21 @@ using MongoDB.Driver;
 
 namespace Catalog.API.Data
 {
-	public class CatalogContextSeed
-	{
-		public CatalogContextSeed()
-		{
-		}
+    public class CatalogContextSeed
+    {
+        public CatalogContextSeed()
+        {
+        }
 
-		public static void SeedData(IMongoCollection<Product> productCollection)
-		{
-			bool existProduct = productCollection.Find(p => true).Any();
+        public static void SeedData(IMongoCollection<Product> productCollection)
+        {
+            bool existProduct = productCollection.Find(p => true).Any();
 
-			if (!existProduct)
-			{
-				productCollection.InsertManyAsync(GetPreconfiguredProducts());
-			}
-		}
+            if (!existProduct)
+            {
+                productCollection.InsertManyAsync(GetPreconfiguredProducts());
+            }
+        }
 
         private static IEnumerable<Product> GetPreconfiguredProducts()
         {

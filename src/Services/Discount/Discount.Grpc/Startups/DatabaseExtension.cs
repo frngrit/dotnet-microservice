@@ -2,32 +2,32 @@
 
 namespace Discount.Grpc.Startups
 {
-	public static class DatabaseExtension
-	{
-		public static void MigrateDatabase(this IServiceProvider serviceProvider, int retry = 1)
-		{
+    public static class DatabaseExtension
+    {
+        public static void MigrateDatabase(this IServiceProvider serviceProvider, int retry = 1)
+        {
 
             int retryForAvailability = retry;
 
             var logger = serviceProvider.GetRequiredService<ILogger<IStartup>>();
 
-			var configuration = serviceProvider.GetRequiredService<IConfiguration>();
-			string ConnectionString = configuration.GetValue<string>("DatabaseSettings:ConnectionString")
+            var configuration = serviceProvider.GetRequiredService<IConfiguration>();
+            string ConnectionString = configuration.GetValue<string>("DatabaseSettings:ConnectionString")
                     ?? throw new ArgumentNullException(nameof(ConnectionString));
 
 
-			try
-			{
-				logger.LogInformation("Migrating postgresql database.");
+            try
+            {
+                logger.LogInformation("Migrating postgresql database.");
 
                 using var connection = new NpgsqlConnection(ConnectionString);
 
-				connection.Open();
+                connection.Open();
 
-				using var command = new NpgsqlCommand()
-				{
-					Connection = connection
-				};
+                using var command = new NpgsqlCommand()
+                {
+                    Connection = connection
+                };
 
                 command.CommandText = "DROP TABLE IF EXISTS Coupon";
                 command.ExecuteNonQuery();
@@ -46,7 +46,7 @@ namespace Discount.Grpc.Startups
                 command.ExecuteNonQuery();
             }
             catch (Exception ex)
-			{
+            {
                 if (retryForAvailability < 50)
                 {
                     logger.LogError("Migration postgres failed, try again: " + retryForAvailability);
@@ -59,6 +59,6 @@ namespace Discount.Grpc.Startups
             }
         }
 
-	}
+    }
 }
 

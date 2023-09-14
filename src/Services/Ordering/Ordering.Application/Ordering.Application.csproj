@@ -9,4 +9,16 @@
   <ItemGroup>
     <ProjectReference Include="..\Ordering.Domain\Ordering.Domain.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <None Remove="Contracts\" />
+    <None Remove="Features\" />
+    <None Remove="Behaviours\" />
+    <None Remove="Contracts\Persistence\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Contracts\" />
+    <Folder Include="Features\" />
+    <Folder Include="Behaviours\" />
+    <Folder Include="Contracts\Persistence\" />
+  </ItemGroup>
 </Project>

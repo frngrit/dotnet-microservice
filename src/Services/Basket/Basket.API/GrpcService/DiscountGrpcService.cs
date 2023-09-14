@@ -4,12 +4,12 @@ using static Discount.Grpc.Protos.DiscountProtoService;
 
 namespace Basket.API.GrpcService
 {
-	public class DiscountGrpcService : IDiscountGrpcService
-	{
+    public class DiscountGrpcService : IDiscountGrpcService
+    {
         private readonly DiscountProtoServiceClient _discountProtoServiceClient;
 
         public DiscountGrpcService(DiscountProtoServiceClient discountProtoServiceClient)
-		{
+        {
             _discountProtoServiceClient = discountProtoServiceClient;
         }
 

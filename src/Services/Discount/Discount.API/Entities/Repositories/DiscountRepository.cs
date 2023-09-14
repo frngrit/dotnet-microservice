@@ -4,7 +4,7 @@ using Npgsql;
 
 namespace Discount.API.Entities.Repositories
 {
-	public class DiscountRepository : IDiscountRepository
+    public class DiscountRepository : IDiscountRepository
     {
         private readonly IConfiguration _configuration;
 
@@ -39,7 +39,7 @@ namespace Discount.API.Entities.Repositories
 
         public async Task<Coupon> GetCoupon(string productName)
         {
-            using var connection =  new NpgsqlConnection(ConnectionString);
+            using var connection = new NpgsqlConnection(ConnectionString);
             var coupon = await connection.QueryFirstOrDefaultAsync<Coupon>
                 ("SELECT * FROM Coupon WHERE ProductName = @ProductName", new { ProductName = productName });
 

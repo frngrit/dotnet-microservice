@@ -5,12 +5,12 @@ using MongoDB.Driver;
 
 namespace Catalog.API.Entities.Repositories
 {
-	public class ProductRepository : IProductRepository
-	{
+    public class ProductRepository : IProductRepository
+    {
         private readonly ICatalogContext _catalogContext;
 
         public ProductRepository(ICatalogContext catalogContext)
-		{
+        {
             _catalogContext = catalogContext;
         }
 

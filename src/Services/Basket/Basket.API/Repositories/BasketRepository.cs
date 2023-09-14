@@ -4,12 +4,12 @@ using Newtonsoft.Json;
 
 namespace Basket.API.Repositories
 {
-	public class BasketRepository : IBasketRepository
-	{
+    public class BasketRepository : IBasketRepository
+    {
         private IDistributedCache _redisCache;
 
         public BasketRepository(IDistributedCache redisCache)
-		{
+        {
             _redisCache = redisCache ?? throw new ArgumentNullException(nameof(redisCache));
         }
 

@@ -2,9 +2,9 @@
 
 namespace Discount.Grpc.Entities.Repositories
 {
-	public interface IDiscountRepository
-	{
-		Task<Coupon> GetCoupon(string productName);
+    public interface IDiscountRepository
+    {
+        Task<Coupon> GetCoupon(string productName);
 
         Task<bool> CreateCounpon(Coupon coupon);
 
