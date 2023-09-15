@@ -9,22 +9,23 @@ namespace Ordering.Application.Features.Orders.Queries.GetOrdersList
         private readonly IOrderRepository _orderRepository;
         private readonly IMapper _mapper;
 
-        public GetOrdersListQueryHandler(
-            IOrderRepository orderRepository,
-            IMapper mapper
+        public GetOrdersListQueryHandler
+            (
+                IOrderRepository orderRepository,
+                IMapper mapper
             )
 		{
             _orderRepository = orderRepository;
             _mapper = mapper;
         }
 
-        async Task<List<OrderVm>> IRequestHandler<GetOrdersListQuery, List<OrderVm>>.Handle
+        public async Task<List<OrderVm>> Handle
             (
                 GetOrdersListQuery request,
                 CancellationToken cancellationToken
             )
         {
-            var orderList = (await _orderRepository.GetOrdersByUserName(request.UserName));
+            var orderList = await _orderRepository.GetOrdersByUserName(request.UserName);
 
             return _mapper.Map<List<OrderVm>>(orderList);
         }
