@@ -1,8 +1,8 @@
 ﻿using System;
 namespace Ordering.Application.Features.Orders.Queries.GetOrdersList
 {
-	public class OrderVm
-	{
+    public class OrderVm
+    {
         public int Id { get; set; }
         public string UserName { get; set; } = string.Empty;
         public decimal TotalPrice { get; set; }

@@ -9,8 +9,8 @@ using Ordering.Domain.Entities;
 
 namespace Ordering.Application.Features.Orders.Commands.CheckOutOrder
 {
-	public class CheckOutOrderCommandHandler : IRequestHandler<CheckOutOrderCommand, int>
-	{
+    public class CheckOutOrderCommandHandler : IRequestHandler<CheckOutOrderCommand, int>
+    {
         private readonly IOrderRepository _orderRepository;
         private readonly IMapper _mapper;
         private readonly IEmailService _emailService;
@@ -21,7 +21,7 @@ namespace Ordering.Application.Features.Orders.Commands.CheckOutOrder
             IMapper mapper,
             IEmailService emailService,
             ILogger<CheckOutOrderCommandHandler> logger)
-		{
+        {
             _orderRepository = orderRepository;
             _mapper = mapper;
             _emailService = emailService;

@@ -5,7 +5,7 @@ using Ordering.Application.Contracts.Persistence;
 namespace Ordering.Application.Features.Orders.Queries.GetOrdersList
 {
     public class GetOrdersListQueryHandler : IRequestHandler<GetOrdersListQuery, List<OrderVm>>
-	{
+    {
         private readonly IOrderRepository _orderRepository;
         private readonly IMapper _mapper;
 
@@ -14,7 +14,7 @@ namespace Ordering.Application.Features.Orders.Queries.GetOrdersList
                 IOrderRepository orderRepository,
                 IMapper mapper
             )
-		{
+        {
             _orderRepository = orderRepository;
             _mapper = mapper;
         }

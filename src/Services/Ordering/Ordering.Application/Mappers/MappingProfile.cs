@@ -6,13 +6,13 @@ using Ordering.Domain.Entities;
 
 namespace Ordering.Application.Mappers
 {
-	public class MappingProfile : Profile
-	{
-		public MappingProfile()
-		{
+    public class MappingProfile : Profile
+    {
+        public MappingProfile()
+        {
             CreateMap<Order, OrderVm>().ReverseMap();
             CreateMap<Order, CheckOutOrderCommand>().ReverseMap();
         }
-	}
+    }
 }
 

@@ -2,11 +2,11 @@
 
 namespace Ordering.Application.Features.Orders.Commands.CheckOutOrder
 {
-	public class CheckOutOrderCommand : IRequest<int>
-	{
-		public CheckOutOrderCommand()
-		{
-		}
+    public class CheckOutOrderCommand : IRequest<int>
+    {
+        public CheckOutOrderCommand()
+        {
+        }
 
         public string UserName { get; set; } = "";
         public decimal TotalPrice { get; set; }
