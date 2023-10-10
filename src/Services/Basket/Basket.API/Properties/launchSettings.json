@@ -20,7 +20,7 @@
     "Basket.API": {
       "commandName": "Project",
       "launchBrowser": true,
-      "applicationUrl": "http://localhost:31371",
+      "applicationUrl": "http://localhost:52111",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
