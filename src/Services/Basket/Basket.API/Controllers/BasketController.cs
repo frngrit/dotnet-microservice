@@ -37,9 +37,7 @@ namespace Basket.API.Controllers
         {
             foreach (var item in basket.Items)
             {
-                // TODO: Communicate to discount.
                 var coupon = await _discountGrpcService.GetCoupon(item.ProductName);
-                // TODO: and calculate total price 
                 item.Price -= coupon.Amount;
             }
 
